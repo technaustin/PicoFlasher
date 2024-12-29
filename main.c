@@ -22,6 +22,7 @@
 #include "hardware/clocks.h"
 #include "pico/stdlib.h"
 #include "pico/bootrom.h"
+#include "pico/time.h"
 
 #include "tusb.h"
 #include "xbox.h"
@@ -72,14 +73,17 @@ void tud_resume_cb(void)
 	printf("flash_config: %x\n", flash_config);
 }
 
+uint32_t millis()
+{
+	return to_ms_since_boot(get_absolute_time());
+}
+
 void led_blink(void)
 {
-	// TODO Fix later to compile successfully
-	/*
 	static uint32_t start_ms = 0;
 	static bool led_state = false;
 
-	uint32_t now = board_millis();
+	uint32_t now = millis();
 
 	if (now - start_ms < 50)
 		return;
@@ -88,7 +92,6 @@ void led_blink(void)
 
 	gpio_put(LED_PIN, led_state);
 	led_state = 1 - led_state;
-	*/
 }
 
 #define GET_VERSION 0x00
