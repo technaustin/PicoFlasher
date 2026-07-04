@@ -1,7 +1,7 @@
 ![PicoFlasher logo](https://raw.githubusercontent.com/X360Tools/PicoFlasher/master/picoflasher.png)
-Updated Pins based on this post below, and fixed the clocks on some RP2040 zero's.
+Updated Pins based on this post below, and merged with this build which has a clock fix.
 
-https://github.com/X360Tools/PicoFlasher/issues/24#issuecomment-1666996348 <--- these guys did all of the hard work I just merged with the clock fix and updated the pins
+https://github.com/X360Tools/PicoFlasher/issues/24#issuecomment-1666996348 <--- these guys did all of the hard work 
 
 <img width="786" height="745" alt="image" src="https://github.com/user-attachments/assets/a2de2d79-7a03-48c2-92f5-8372acb9ba86" />
 
