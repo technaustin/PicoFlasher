@@ -3,11 +3,15 @@ name: Build RP2040-Zero PicoFlasher UF2
 on:
   workflow_dispatch:
   push:
-    branches: [ main, master, '3.2' ]
+    branches:
+      - main
+      - master
+      - '3.2'
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Check out PicoFlasher source
         uses: actions/checkout@v4
@@ -37,12 +41,13 @@ jobs:
       - name: Collect UF2
         run: |
           mkdir -p artifact
-          find . -name '.github/workflows/build-zero-uf2.yml' -print -exec cp {} artifact/ \;
+          find . -name "*.uf2" -print
+          find . -name "*.uf2" -exec cp {} artifact/ \;
           ls -lh artifact
 
       - name: Upload UF2 artifact
         uses: actions/upload-artifact@v4
         with:
           name: PicoFlasher-3.2-RP2040-Zero-UF2
-          path: artifact/*.uf2
-
+          path: artifact/
+          if-no-files-found: error
