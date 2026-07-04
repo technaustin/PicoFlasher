@@ -5,7 +5,7 @@ https://github.com/X360Tools/PicoFlasher/issues/24#issuecomment-1666996348 <--- 
 
 <img width="786" height="745" alt="image" src="https://github.com/user-attachments/assets/a2de2d79-7a03-48c2-92f5-8372acb9ba86" />
 
-Compiled here - [PicoFlasher - RP2040Zero - Clock Fix.pdf](https://github.com/user-attachments/files/29655187/PicoFlasher.-.RP2040Zero.-.Clock.Fix.pdf)
+Compiled here - [PicoFlasher - RP2040Zero - Clock Fix.pdf](https://github.com/user-attachments/files/29655187/PicoFlasher.-.RP2040Zero.-.Clock.Fix.pdf) <- rename to .uf2 extension
 
 
 
