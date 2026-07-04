@@ -37,7 +37,7 @@ jobs:
       - name: Collect UF2
         run: |
           mkdir -p artifact
-          find . -name '*.uf2' -print -exec cp {} artifact/ \;
+          find . -name '.github/workflows/build-zero-uf2.yml' -print -exec cp {} artifact/ \;
           ls -lh artifact
 
       - name: Upload UF2 artifact
