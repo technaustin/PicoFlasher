@@ -1,1 +1,48 @@
+name: Build RP2040-Zero PicoFlasher UF2
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main, master, '3.2' ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out PicoFlasher source
+        uses: actions/checkout@v4
+
+      - name: Install ARM/Pico build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake gcc-arm-none-eabi libnewlib-arm-none-eabi build-essential git python3
+
+      - name: Fetch Pico SDK
+        run: |
+          git clone --depth 1 https://github.com/raspberrypi/pico-sdk.git $HOME/pico-sdk
+          cd $HOME/pico-sdk
+          git submodule update --init --recursive
+
+      - name: Configure CMake
+        run: |
+          mkdir -p build
+          cd build
+          PICO_SDK_PATH=$HOME/pico-sdk cmake ..
+
+      - name: Build UF2
+        run: |
+          cd build
+          make -j2
+
+      - name: Collect UF2
+        run: |
+          mkdir -p artifact
+          find . -name '*.uf2' -print -exec cp {} artifact/ \;
+          ls -lh artifact
+
+      - name: Upload UF2 artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: PicoFlasher-3.2-RP2040-Zero-UF2
+          path: artifact/*.uf2
 
