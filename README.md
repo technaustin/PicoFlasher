@@ -7,6 +7,10 @@ https://github.com/X360Tools/PicoFlasher/issues/24#issuecomment-1666996348 <--- 
 
 Compiled here - [PicoFlasher - RP2040Zero - Clock Fix.pdf](https://github.com/user-attachments/files/29655187/PicoFlasher.-.RP2040Zero.-.Clock.Fix.pdf) <- rename to .uf2 extension
 
+Notes: on 4GB I had to use the 10k resistor and ground fix as seen in Mr Mario's Video below
+
+https://www.youtube.com/watch?v=_p8EKHUF9w0
+
 
 
 Hello. I have changed the pins in the source code, and I can confirm my rp2040-zero works with both 16mb and 4gb nands. Here is the file compiled for the zero just delete the ".pdf" from the file
